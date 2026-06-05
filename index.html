@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Smart, Pass JLPT Fast</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f4f8; /* হালকা নীলচে চমৎকার ব্যাকগ্রাউন্ড */
+            color: #2d3748;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 1. Header & Logo Area (Vibrant Gradient) */
+        header {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b); /* আকর্ষণীয় লাল-গোলাপি গ্রাডিয়েন্ট */
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3);
+        }
+        .logo-area h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 12px;
+        }
+        .logo-area p {
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* 2. Main Navigation Menu */
+        nav {
+            background-color: #1a202c; /* ডার্ক থিম মেনু */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .nav-container li a {
+            display: block;
+            padding: 18px 30px;
+            font-weight: 600;
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .nav-container li a:hover {
+            color: #ffffff;
+            background-color: #ff4b2b; /* মেনুতে হোভার করলে লাল হবে */
+        }
+
+        /* Main Layout Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 3. Latest Updates Section */
+        .latest-updates {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 1.6rem;
+            color: #ff4b2b;
+            margin-bottom: 25px;
+            border-bottom: 4px solid #ff4b2b;
+            padding-bottom: 8px;
+            display: inline-block;
+            border-radius: 2px;
+        }
+        
+        /* Colorful Post Cards */
+        .post-card {
+            background: #ffffff;
+            border-left: 6px solid #ff4b2b; /* বাম পাশে চওড়া কালার বার */
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(255, 75, 43, 0.15);
+            background: #fff8f7; /* হোভার করলে হালকা লালচে ব্যাকগ্রাউন্ড */
+        }
+        .post-card h3 a {
+            color: #1a202c;
+            transition: color 0.2s;
+        }
+        .post-card:hover h3 a {
+            color: #ff4b2b;
+        }
+        .post-card .meta {
+            font-size: 0.85rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+            background: #edf2f7;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .post-card p {
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            display: inline-block;
+            background: linear-gradient(135deg, #11998e, #38ef7d); /* সবুজ ভাইব্রেন্ট বাটন */
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(56, 239, 125, 0.3);
+            transition: transform 0.2s;
+        }
+        .read-more:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* Sidebar: Categories & About Me */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        .widget {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        /* 4. Colorful Category Section */
+        .category-list {
+            list-style: none;
+        }
+        .category-list li {
+            margin-bottom: 10px;
+        }
+        .category-list li a {
+            display: block;
+            padding: 12px 18px;
+            color: #4a5568;
+            background: #f7fafc;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .category-list li a:hover {
+            background: #3182ce; /* ক্যাটাগরিতে হোভার করলে চমৎকার নীল রঙ */
+            color: white;
+            padding-left: 25px;
+            border-color: #3182ce;
+        }
+
+        /* 5. About Me Section */
+        .about-me {
+            text-align: center;
+        }
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+        }
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #ff4b2b; /* ছবির চারপাশে লাল বর্ডার */
+            object-fit: cover;
+        }
+        .about-me h3 {
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        .about-me p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a202c;
+            color: #a0aec0;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid #ff4b2b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ১. বড় লোগো এবং কালারফুল ব্যানার এরিয়া -->
+    <header>
+        <div class="logo-area">
+            <h1>Study Smart, Pass JLPT Fast</h1>
+            <p>JLPT N5 & N4 এর জন্য সেরা অনলাইন কুইজ এবং মক টেস্ট প্ল্যাটফর্ম</p>
+        </div>
+    </header>
+
+    <!-- ২. ডার্ক ও রেসপন্সিভ মেইন মেনু -->
+    <nav>
+        <ul class="nav-container">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">JLPT N5</a></li>
+            <li><a href="#">JLPT N4</a></li>
+            <li><a href="#">Grammar Matrix</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- কন্টেন্ট লেআউট -->
+    <div class="main-container">
+        
+        <!-- ৩. লেটেস্ট আপডেট সেকশন -->
+        <main class="latest-updates">
+            <h2 class="section-title">✨ Latest Updates</h2>
+            
+            <!-- পোস্ট কার্ড ১ -->
+            <div class="post-card">
+                <h3><a href="#">STAR MARK QUESTIONS N4 PART 8</a></h3>
+                <div class="meta">📅 June 4, 2026 | ✍️ By Santo</div>
+                <p>N4 Star Mark প্র্যাকটিস পার্ট ৮ এর নতুন কুইজ যুক্ত করা হয়েছে। আপনার প্রস্তুতি যাচাই করতে এখনই নিচের বাটনে ক্লিক করে কুইজে অংশ নিন।</p>
+                <a href="#" class="read-more">Start Quiz Now 🚀</a>
+            </div>
+
+            <!-- পোস্ট কার্ড ২ -->
+            <div class="post-card">
+                <h3><a href="#">JLPT N4 All Verb Forms Matrix</a></h3>
+                <div class="meta">📅 May 28, 2026 | ✍️ By Santo</div>
+                <p>জাপানিজ ভাষার N4 লেভেলের সব গুরুত্বপূর্ণ ভার্ব ফর্মগুলো এক জায়গায় সহজে বাংলা ব্যাখ্যা সহ সাজানো হয়েছে। পরীক্ষার আগে রিভিশনের জন্য এটি সেরা।</p>
+                <a href="#" class="read-more">Read Full Matrix 📖</a>
+            </div>
+        </main>
+
+        <!-- সাইডবার -->
+        <aside>
+            <!-- ৪. কালারফুল ক্যাটাগরি উইজেট -->
+            <div class="widget">
+                <h2 class="section-title">📂 Categories</h2>
+                <ul class="category-list">
+                    <li><a href="#">📚 JLPT N4 Grammar</a></li>
+                    <li><a href="#">📝 JLPT N5 Vocabulary</a></li>
+                    <li><a href="#">🔍 Dictionary Form Terminal</a></li>
+                    <li><a href="#">🏆 Live Mock Tests</a></li>
+                </ul>
+            </div>
+
+            <!-- ৫. কাস্টম About Me উইজেট -->
+            <div class="widget about-me">
+                <h2 class="section-title">👨‍🏫 About Me</h2>
+                <div class="avatar-container">
+                    <!-- এখানে আপনার রিয়েল প্রোফাইল পিকচারের লিংক দিতে পারেন -->
+                    <img src="https://via.placeholder.com/110" alt="Santo">
+                </div>
+                <h3>Santo</h3>
+                <p>হ্যালো! আমি সান্তো। জাপানিজ ভাষা শেখা সহজ করতে এবং JLPT পরীক্ষার সেরা প্রস্তুতির জন্য এই ব্লগে আমি নিয়মিত বিভিন্ন প্রিমিয়াম কুইজ ও লেসন শেয়ার করি।</p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- ফুটার -->
+    <footer>
+        <p>&copy; 2026 Study Smart, Pass JLPT Fast. All Rights Reserved. Designed for Learners.</p>
+    </footer>
+
+</body>
+</html>
